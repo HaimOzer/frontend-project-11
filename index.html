@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RSS Aggregator</title>
+</head>
+<body>
+    <main>
+        <section class="form">
+            <h1>RSS агрегатор</h1>
+            <p>Введите ссылку на RSS ленту, чтобы добавить её в список</p>
+            <form action="rss.php" method="post">
+                <input type="text" name="url" id="url" placeholder="Ссылка RSS">
+                <label for="url-input"></label>
+                <button type="submit">Добавить</button>
+            </form>
+        </section>
+        <section class="content"></section>
+    </main>
+</body>
+</html>
