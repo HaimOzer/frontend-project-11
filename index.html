@@ -8,15 +8,24 @@
 <body>
     <main>
         <section class="form">
+            <div>
             <h1>RSS агрегатор</h1>
             <p>Введите ссылку на RSS ленту, чтобы добавить её в список</p>
-            <form action="rss.php" method="post">
-                <input type="text" name="url" id="url" placeholder="Ссылка RSS">
-                <label for="url-input"></label>
+            <form class="form" action="rss.php" method="post">
+                <input class="input" type="text" name="url" id="url-input" autofocus="" required="" aria-label="url" placeholder="Ссылка RSS">
+                <label for="url-input">Ссылка RSS</label>
                 <button type="submit">Добавить</button>
             </form>
+            <p class="text-muted">Пример: https://lorem-rss.hexlet.app/feed</p>
+            <p class="feedback"></p>
+            </div>
         </section>
-        <section class="content"></section>
+        <section class="content">
+            <div >
+                <div class="posts"></div>
+                <div class="feeds"></div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
