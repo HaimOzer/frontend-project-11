@@ -8,24 +8,41 @@
 <body>
     <main>
         <section class="form">
-            <div>
+            <div class="row">
+                <div>
             <h1>RSS агрегатор</h1>
-            <p>Введите ссылку на RSS ленту, чтобы добавить её в список</p>
-            <form class="form" action="rss.php" method="post">
-                <input class="input" type="text" name="url" id="url-input" autofocus="" required="" aria-label="url" placeholder="Ссылка RSS">
+            <p class="description">Введите ссылку на RSS ленту, чтобы добавить её в список</p>
+            <form class="rss-form" action="rss.php" method="post">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating">
+                <input class="form-control" autofocus required type="text" name="url" id="url-input" autofocus="" required="" aria-label="url" placeholder="Ссылка RSS" autocomplete="off">
                 <label for="url-input">Ссылка RSS</label>
-                <button type="submit">Добавить</button>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                <button type="submit" aria-label="add">Добавить</button>
+                    </div>
+                </div>
             </form>
-            <p class="text-muted">Пример: https://lorem-rss.hexlet.app/feed</p>
+            <p class="text-muted" id="url-example">Пример: https://lorem-rss.hexlet.app/feed</p>
             <p class="feedback"></p>
+            </div>
             </div>
         </section>
         <section class="content">
-            <div >
+            <div class="row">
                 <div class="posts"></div>
                 <div class="feeds"></div>
             </div>
         </section>
     </main>
+    <footer class="footer">
+        <div>
+            <div class="text-center">
+                Created by <a href="https://github.com/HaimOzer/frontend-project-11" target="_blank">Alex Zuev</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
