@@ -1,12 +1,15 @@
 import * as yup from 'yup';
 import onChange from 'on-change';
-import axios from 'axios';
 import i18next from 'i18next';
+import axios from 'axios';
 import { uniqueId } from 'lodash';
+import { renderInit, render } from './render.js';
+import resources from './locales/index.js';
+import rssParser from './parser.js';
 
-const validateForm = (url, addedLinks) => {
-  const schema = yup.string().url().trim().required()
-    .notOneOf(addedLinks);
+const validateForm = (url, existedFeedsUrls) => {
+  const schema = yup.string().trim().required().url()
+    .notOneOf(existedFeedsUrls);
 
   return schema.validate(url, { abortEarly: false });
 };
@@ -26,7 +29,7 @@ const addFeedAndRelatedPosts = (parsedContent, watchedState) => {
   posts.forEach((post) => watchedState.posts.unshift(post));
 };
 
-const contentAutoUpdateTimer = 5000; // ms
+const contentAutoupdateTimer = 5000; // ms
 
 const updatePosts = (watchedState) => {
   const promises = watchedState.feeds.map((feed) => axios
@@ -51,7 +54,7 @@ const updatePosts = (watchedState) => {
     .catch((error) => {
       console.error(`${error.name}: ${error.message}`);
     })
-    .finally(() => setTimeout(updatePosts, contentAutoUpdateTimer, watchedState));
+    .finally(() => setTimeout(updatePosts, contentAutoupdateTimer, watchedState));
 };
 
 const errorHandler = (error, watchedState) => {
@@ -91,7 +94,7 @@ const app = () => {
 
   const elements = {
     mainHeader: document.querySelector('h1'),
-    description: document.querySelector('.description'),
+    description: document.querySelector('.lead'),
     inputForm: document.querySelector('.rss-form'),
     inputField: document.querySelector('#url-input'),
     inputLabel: document.querySelector('label[for="url-input"]'),
@@ -100,10 +103,10 @@ const app = () => {
     submitButton: document.querySelector('button[type="submit"]'),
     postsContainer: document.querySelector('.posts'),
     feedsContainer: document.querySelector('.feeds'),
-    // modalWindowTitle: document.querySelector('.modal-title'),
-    // modalWindowDescription: document.querySelector('.modal-body'),
-    // modalWindowArticleLink: document.querySelector('.full-article'),
-    // modalWindowCloseButton: document.querySelector('.modal-footer button'),
+    modalWindowTitle: document.querySelector('.modal-title'),
+    modalWindowDescription: document.querySelector('.modal-body'),
+    modalWindowArticleLink: document.querySelector('.full-article'),
+    modalWindowCloseButton: document.querySelector('.modal-footer button'),
   };
 
   yup.setLocale({
