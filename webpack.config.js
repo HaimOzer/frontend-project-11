@@ -1,7 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname);// eslint-disable-line
+const __dirname = path.dirname(new URL(import.meta.url).pathname) // eslint-disable-line
 const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
@@ -30,7 +30,8 @@ const config = {
       },
 
       {
-        test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'],
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.scss$/,
