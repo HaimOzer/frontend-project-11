@@ -21,9 +21,9 @@ https://frontend-project-11-3cys.vercel.app/
 ## Technologies
 This project is developed using the following technologies and tools:
 
-Programming Language: JavaScript
-Libraries: Bootstrap, Axios, i18next, yup
-Build Tools: Webpack
+- Programming Language: JavaScript
+- Libraries: Bootstrap, Axios, i18next, yup
+- Build Tools: Webpack
 
 ## Installation and Running
 To install and run the project locally, follow these steps:
