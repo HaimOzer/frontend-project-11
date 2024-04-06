@@ -37,7 +37,6 @@ const renderInputFormChanges = (elements, inputFormState, i18next) => {
       elements.submitButton.disabled = true;
     },
     processed: () => {
-      /* elements.inputField.classList.add('is-valid'); */
       elements.inputField.removeAttribute('readonly');
       elements.submitButton.disabled = false;
       elements.inputFeedback.classList.remove('text-danger');
@@ -47,7 +46,6 @@ const renderInputFormChanges = (elements, inputFormState, i18next) => {
       elements.inputField.focus();
     },
     failed: () => {
-      /* elements.inputField.classList.add('is-invalid'); */
       elements.inputField.removeAttribute('readonly');
       elements.submitButton.disabled = false;
       elements.inputFeedback.classList.remove('text-success');

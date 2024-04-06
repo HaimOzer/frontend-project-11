@@ -29,8 +29,6 @@ const addFeedAndRelatedPosts = (parsedContent, watchedState) => {
   posts.forEach((post) => watchedState.posts.unshift(post));
 };
 
-const contentAutoupdateTimer = 5000; // ms
-
 const updatePosts = (watchedState) => {
   const promises = watchedState.feeds.map((feed) => axios
     .get(proxifyUrl(feed.url))
@@ -49,7 +47,7 @@ const updatePosts = (watchedState) => {
     .catch((error) => {
       throw error;
     }));
-
+  const contentAutoupdateTimer = 5000; // ms
   return Promise.all(promises)
     .catch((error) => {
       console.error(`${error.name}: ${error.message}`);
