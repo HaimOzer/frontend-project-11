@@ -104,7 +104,7 @@ const app = () => {
     modalWindowTitle: document.querySelector('.modal-title'),
     modalWindowDescription: document.querySelector('.modal-body'),
     modalWindowArticleLink: document.querySelector('.full-article'),
-    modalWindowCloseButton: document.querySelector('.modal-footer button'),
+    modalWindowCloseButton: document.querySelector('.modal-footer-button'),
   };
 
   yup.setLocale({
